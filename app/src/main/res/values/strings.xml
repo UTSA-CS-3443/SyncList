@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SyncList2</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="synclist">SYNCLIST</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="add_task">Add Task</string>
+    <string name="remember_me">Remember Me</string>
+    <string-array name="task_categories">
+        <item>Important</item>
+        <item>School</item>
+        <item>Work</item>
+    </string-array>
+</resources>

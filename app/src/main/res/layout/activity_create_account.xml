@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".CreateAccount">
+
+    <TextView
+        android:id="@+id/CreateAccount"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:padding="5dp"
+        android:text="CREATE AN ACCOUNT"
+        android:textAlignment="center"
+        android:textColor="#01050B"
+        android:textSize="45sp" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical"
+        android:hint="Email"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical"
+        android:hint="Password"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+        android:text="CREATE ACCOUNT"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+        android:text="BACK"
+        android:textColor="@color/white" />
+
+</LinearLayout>

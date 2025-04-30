@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/SYNCLISTtextView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:padding="2dp"
+        android:text="SYNCLIST"
+        android:textAlignment="center"
+        android:textColor="#01050B"
+        android:textSize="50sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="205dp"
+        android:layout_height="205dp"
+        android:padding="25dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:text="@string/remember_me"
+        android:textAlignment="viewStart"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+        android:text="Login"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/firstCreateAccountButton"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+        android:text="Create Account"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>
