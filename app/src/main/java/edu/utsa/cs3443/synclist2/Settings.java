@@ -49,20 +49,19 @@ public class Settings extends AppCompatActivity {
         updateNotificationButtonText();
 
         // Button setup
-        Button button1 = findViewById(R.id.button);   // Light/Dark Mode (now also sends test notification)
+//        Button button1 = findViewById(R.id.button);   // Sends test notification
         Button button2 = findViewById(R.id.button2);  // Logout
         Button button3 = findViewById(R.id.button3);  // Back
         Button button4 = findViewById(R.id.button4);  // Notifications toggle
 
-        button1.setOnClickListener(v -> {
-            // implement theme switcher or remove this
-            // New: Send test notification when pressed
-            if (notificationsEnabled) {
-                sendTestNotification();
-            } else {
-                Toast.makeText(this, "Enable notifications first", Toast.LENGTH_SHORT).show();
-            }
-        });
+// Button 1 logic is commented out because it only serves as a way to debug push notifications
+//        button1.setOnClickListener(v -> {
+//            if (notificationsEnabled) {
+//                sendTestNotification();
+//            } else {
+//                Toast.makeText(this, "Enable notifications first", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         button2.setOnClickListener(v -> {
             // Clear SharedPreferences to log out the user
