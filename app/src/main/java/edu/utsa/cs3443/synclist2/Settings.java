@@ -78,7 +78,7 @@ public class Settings extends AppCompatActivity {
             finish();
         });
 
-        button3.setOnClickListener(v -> finish()); // currently set to just back out of the app
+        button3.setOnClickListener(v -> finish());
         button4.setOnClickListener(v -> toggleNotifications());
     }
 
