@@ -1,10 +1,18 @@
 package edu.utsa.cs3443.synclist2;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.os.Build;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,17 +33,31 @@ import edu.utsa.cs3443.synclist2.model.Task;
 
 public class TaskManager extends AppCompatActivity {
 
+    private static final String CHANNEL_ID = "default_channel";
+    private static final String PREFS_NAME = "AppPrefs";
+    private static final String NOTIFICATION_KEY = "notifications_enabled";
+    private static final int DELETE_NOTIFICATION_ID = 2;
+
     private RecyclerView taskRecyclerView;
     private TaskAdapter adapter;
-    private List<Task> taskList;  // Replace ArrayList<String> with List<Task>
+    private List<Task> taskList;
     private RecyclerView importantRecyclerView, schoolRecyclerView, workRecyclerView;
     private TaskAdapter importantAdapter, schoolAdapter, workAdapter;
     private List<Task> importantTasks, schoolTasks, workTasks;
+    private NotificationManager notificationManager;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_manager);
+
+        // Initialize Notification Manager
+        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        createNotificationChannel();
+
+        // Load preferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         importantRecyclerView = findViewById(R.id.importantRecyclerView);
         schoolRecyclerView = findViewById(R.id.schoolRecyclerView);
@@ -59,7 +82,6 @@ public class TaskManager extends AppCompatActivity {
         // Load tasks from CSV here
         loadTasksFromCSV();
 
-
         Button addButton = findViewById(R.id.add_button);
         ImageButton settingsButton = findViewById(R.id.settingsButton);
 
@@ -79,7 +101,6 @@ public class TaskManager extends AppCompatActivity {
             }
         });
 
-
         Button deleteButton = findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(v -> {
             List<Task> toDelete = new ArrayList<>();
@@ -95,9 +116,49 @@ public class TaskManager extends AppCompatActivity {
                 importantAdapter.notifyDataSetChanged();
                 schoolAdapter.notifyDataSetChanged();
                 workAdapter.notifyDataSetChanged();
+
+                // Send success notification if notifications are enabled
+                sendDeleteSuccessNotification();
             }
         });
+    }
 
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "Default Channel",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            channel.setDescription("App Notifications");
+            channel.enableLights(true);
+            channel.setLightColor(Color.BLUE);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void sendDeleteSuccessNotification() {
+        boolean notificationsEnabled = sharedPreferences.getBoolean(NOTIFICATION_KEY, false);
+
+        if (!notificationsEnabled) {
+            return;
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+        }
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setContentTitle("SyncList")
+                .setContentText("Success! You completed a task!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .build();
+
+        notificationManager.notify(DELETE_NOTIFICATION_ID, notification);
     }
 
     @Override
@@ -105,8 +166,8 @@ public class TaskManager extends AppCompatActivity {
         super.onResume();
         loadTasksFromCSV();     // Reload tasks from CSV
     }
-    private void loadTasksFromCSV() {
 
+    private void loadTasksFromCSV() {
         // clears previous data
         importantTasks.clear();
         schoolTasks.clear();
@@ -167,5 +228,4 @@ public class TaskManager extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 }
