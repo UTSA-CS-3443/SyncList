@@ -1,4 +1,10 @@
 ![logo](https://github.com/UTSA-CS-3443/SyncList/blob/main/app/src/main/res/drawable/logo.png)
+
+![GitHub Release](https://img.shields.io/github/v/release/UTSA-CS-3443/SyncList)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/UTSA-CS-3443/SyncList/.github%2Fworkflows%2Fgenerate-apk-aab-debug-release.yml)
+![GitHub License](https://img.shields.io/github/license/UTSA-CS-3443/SyncList)
+
+
 # SyncList
 SyncList is a task management app developed by SwiftSync. Users can dynamically add and remove tasks with dates, useful for keeping track of anything they need.
 # Features
