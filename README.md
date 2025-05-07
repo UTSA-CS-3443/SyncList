@@ -18,6 +18,11 @@ Source code is provided via both the releases tab and the repo itself. The sourc
 
 For further information, please refer to the [wiki](https://github.com/UTSA-CS-3443/SyncList/wiki).
 # Issues
-- TBD
+All current issues are listed on the [Issues](https://github.com/UTSA-CS-3443/SyncList/issues) section of the repo.
 # Contributors
-Developed by Harvey Brunner, Xavier Hernandez, Rodrigo Ramos, Mason Sedberry. Special thanks to Professor Alkittawi and Felix Nguyen.
+Developed by Harvey Brunner, Xavier Hernandez, Rodrigo Ramos, Mason Sedberry. 
+
+# Special thanks
+Professor Alkittawi and Felix Nguyen
+
+[amirisback](https://github.com/amirisback) for the [Generated APK AAB (Upload - Create Artifact To Github Action)](https://github.com/amirisback/automated-build-android-app-with-github-action) workflow
