@@ -1,8 +1,9 @@
 ![logo](https://github.com/UTSA-CS-3443/SyncList/blob/main/app/src/main/res/drawable/logo.png)
 
-![GitHub Release](https://img.shields.io/github/v/release/UTSA-CS-3443/SyncList)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/UTSA-CS-3443/SyncList/.github%2Fworkflows%2Fgenerate-apk-aab-debug-release.yml)
-![GitHub License](https://img.shields.io/github/license/UTSA-CS-3443/SyncList)
+![GitHub Release](https://img.shields.io/github/v/release/UTSA-CS-3443/SyncList?link=https%3A%2F%2Fgithub.com%2FUTSA-CS-3443%2FSyncList%2Freleases)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/UTSA-CS-3443/SyncList/.github%2Fworkflows%2Fgenerate-apk-aab-debug-release.yml?link=https%3A%2F%2Fgithub.com%2FUTSA-CS-3443%2FSyncList%2Factions)
+![GitHub License](https://img.shields.io/github/license/UTSA-CS-3443/SyncList?link=https%3A%2F%2Fgithub.com%2FUTSA-CS-3443%2FSyncList%2Fblob%2Fmain%2FLICENSE)
+
 
 
 # SyncList
